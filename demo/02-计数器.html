@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <body>
+        <div id="app">
+            <h2>当前计数：{{counter}}</h2>
+
+            <!--标准写法-->
+            <!--<button v-on:click="increment"> + </button>-->
+            <!--语法糖式写法（简写）-->
+            <button @click="increment"> + </button>
+            <button @click="decrement"> - </button>
+        </div>
+
+        <script src="../js/vue.js"></script>
+        <script>
+            let app = new Vue({  //new Vue联想java，new了一个对象，这个vue对象参数也是传入一个对象
+                el: '#app', // 挂载要管理的元素
+                el: '#app', // 挂载要管理的元素
+                data: {
+                    counter: 0
+                },
+                methods: {
+                    increment :function(){
+                        this.counter ++
+                        console.log("increment()方法被执行...")
+                    },
+                    decrement :function(){
+                        this.counter --
+                        console.log("decrement()方法被执行...")
+                    }
+                }
+            })
+        </script>
+    </body>
+</html>
