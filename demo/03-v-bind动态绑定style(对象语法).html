@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <body>
+        <div id="app">
+            <!--使用v-bind动态绑定style，通过对象语法形式实现-->
+            <h2 :style= "{fontSize: finalFonts,backgroundColor: finalBackgroundColor}">{{message}}</h2>
+            <!--定义一个方法，返回style对象-->
+            <h2 :style= "getStyles()">{{message}}</h2>
+        </div>
+
+        <script src="../js/vue.js"></script>
+        <script>
+            let app = new Vue({  //new Vue联想java，new了一个对象，这个vue对象参数也是传入一个对象
+                el: '#app', // 挂载要管理的元素
+                data: {
+                    counter: 0,
+                    message: "hello,vue!",
+                    finalFonts: "50px",
+                    finalBackgroundColor: "red"
+                },
+                methods:{
+                    getStyles: function () {
+                        return {fontSize: this.finalFonts,backgroundColor: this.finalBackgroundColor}
+                    }
+                }
+            })
+        </script>
+    </body>
+</html>
