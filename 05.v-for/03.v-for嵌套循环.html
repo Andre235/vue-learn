@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <body>
+        <div id="app">
+            <ul v-for="set in sets">
+                <li v-for="num in even(set)">{{num}}</li>
+            </ul>
+        </div>
+
+        <script src="../js/vue.js"></script>
+        <script>
+            let app = new Vue({  //new Vue联想java，new了一个对象，这个vue对象参数也是传入一个对象
+                el: '#app', // 挂载要管理的元素
+                data: {
+                    sets: [[ 1, 2, 3, 4, 5 ], [6, 7, 8, 9, 10]]
+                },
+                methods:{
+                    even: function (numbers) {
+                        return numbers.filter(function (number) {
+                            return number % 2 ===0;
+                        })
+                    }
+                }
+            })
+        </script>
+    </body>
+</html>
