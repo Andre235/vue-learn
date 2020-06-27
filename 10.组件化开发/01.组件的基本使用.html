@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <body>
+        <div id="app">
+            <com1></com1>
+        </div>
+
+        <script src="../js/vue.js"></script>
+        <script>
+            //1.创建组件构造器
+            let component1 = Vue.extend({
+               template: `
+                    <div>
+                        <h2>二级标题</h2>
+                        <h4>四级标题</h4>
+                        <p>正文内容</p>
+                    </div>
+               `
+            });
+
+            //2.注册全局组件
+            Vue.component("my-com",component1);
+
+            //2.注册局部组件
+             let app = new Vue({
+                 el: '#app',
+                 data: {
+                     message: "hello vue"
+                 },
+                 components: {
+                     com1: component1
+                 }
+             })
+        </script>
+    </body>
+</html>
