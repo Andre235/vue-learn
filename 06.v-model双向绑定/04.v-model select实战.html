@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-model="http://www.w3.org/1999/xhtml" xmlns:v-bind="http://www.w3.org/1999/xhtml"
+      xmlns:v-on="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+
+    <body>
+        <div id="app">
+            <!--单选下拉框-->
+            <select name="fruit" v-model="fruit">
+                <option value="香蕉">香蕉</option>
+                <option value="苹果">苹果</option>
+                <option value="橘子">橘子</option>
+            </select>
+            <h2>您选择的水果是：{{fruit}}</h2>
+
+            <!--多选下拉框-->
+            <select name="fruits" v-model.lazy="fruits" multiple>
+                <option value="香蕉">香蕉</option>
+                <option value="苹果">苹果</option>
+                <option value="橘子">橘子</option>
+                <option value="橘子1">橘子1</option>
+                <option value="橘子2">橘子2</option>
+                <option value="橘子3">橘子3</option>
+                <option value="橘子4">橘子4</option>
+            </select>
+            <h2>您选择的水果是：{{fruits}}</h2>
+
+        </div>
+
+        <script src="../js/vue.js"></script>
+        <script>
+         let app = new Vue({
+             el: '#app',
+             data: {
+                 fruit:"香蕉",
+                 fruits:[]
+             }
+         })
+        </script>
+    </body>
+</html>

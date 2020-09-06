@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-model="http://www.w3.org/1999/xhtml" xmlns:v-bind="http://www.w3.org/1999/xhtml"
+      xmlns:v-on="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+
+    <body>
+        <div id="app">
+
+            <!--单选框-->
+            <label for="license">
+                <input type="checkbox" id="license" value="同意协议" v-model="license">同意协议
+            </label>
+            <br/>
+            <button :disabled="!license">注册</button>
+
+            <br/>
+            <br/>
+            <!--多选框-->
+            <label for="basketball">
+                <input type="checkbox" id="basketball" value="篮球" v-model="hobbies">篮球
+            </label>
+            <label for="football">
+                <input type="checkbox" id="football" value="足球" v-model="hobbies">足球
+            </label>
+            <label for="volleyball">
+                <input type="checkbox" id="volleyball" value="排球" v-model="hobbies">排球
+            </label>
+            <h2>您的兴趣爱好是：{{hobbies}}</h2>
+        </div>
+
+        <script src="../js/vue.js"></script>
+        <script>
+         let app = new Vue({
+             el: '#app',
+             data: {
+                 message: "hello vue",
+                 license: false,
+                 hobbies:[]
+             }
+         })
+        </script>
+    </body>
+</html>
