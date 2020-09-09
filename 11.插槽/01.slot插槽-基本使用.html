@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <body>
+        <div id="app">
+            <cpn><h1>扩展标题</h1></cpn>
+            <cpn><button>扩展按钮</button></cpn>
+            <cpn></cpn>
+        </div>
+
+        <template id="cpn">
+            <div>
+                <h3>组件标题</h3>
+                <slot><button>默认插槽标题</button></slot>
+            </div>
+        </template>
+
+        <script src="../js/vue.js"></script>
+        <script>
+         let app = new Vue({
+             el: '#app',
+             data: {
+                 message: "hello vue"
+             },
+             components:{
+                 cpn:{
+                     template:"#cpn"
+                 }
+             }
+         })
+        </script>
+    </body>
+</html>
