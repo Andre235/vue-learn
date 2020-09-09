@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+
+
+    <body>
+        <div id="app">
+            <cpn></cpn>
+            <cpn></cpn>
+            <cpn ref="ref1"></cpn>
+            <button @click="btnClick">按钮</button>
+        </div>
+<!---->
+        <template id="cpn">
+            <div>
+                <h3>我是子组件</h3>
+            </div>
+        </template>
+
+        <script src="../js/vue.js"></script>
+        <script>
+            const cpn = {
+                template: "#cpn",
+                data(){
+                    return{
+                        message: "cpn msg"
+                    }
+                },
+                methods:{
+                    showMessage(){
+                        console.log("showMessage方法被调用...");
+                    }
+                }
+            };
+             let app = new Vue({
+                 el: '#app',
+                 data: {
+                     message: "hello vue"
+                 },
+                 components:{
+                     cpn
+                 },
+                 methods:{
+                     btnClick(){
+                         console.log(this.$refs.ref1);
+                     }
+                 }
+             })
+        </script>
+    </body>
+</html>

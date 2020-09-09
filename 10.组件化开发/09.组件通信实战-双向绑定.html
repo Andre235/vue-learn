@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+
+    <body>
+        <div id="app">
+            <cpn :number1="num1" :number2="num2"></cpn>
+        </div>
+
+        <template id="cpn">
+            <div>
+                <p>props:{{number1}}</p>
+                <p>dataNumber:{{dnumber1}}</p>
+                <input type="text" v-model="dnumber1">
+                <p>props:{{number2}}</p>
+                <p>dataNumber:{{dnumber2}}</p>
+                <input type="text" v-model="dnumber2">
+            </div>
+        </template>
+
+        <script src="../js/vue.js"></script>
+        <script>
+            let cpn = {
+                template: "#cpn",
+                // 避免直接改变props属性里面的值，取而代替的是用data或者计算属性进行实现，因为每当父组件重新渲染时，该值都会被重新覆盖
+                props:{
+                    number1:Number,
+                    number2:Number
+                },
+                data(){
+                    return{
+                        dnumber1: this.number1,
+                        dnumber2: this.number2
+                    }
+                }
+            };
+             let app = new Vue({
+                 el: '#app',
+                 data: {
+                     message: "hello vue",
+                     num1:1,
+                     num2:2
+                 },
+                 components:{
+                     cpn
+                 }
+             })
+        </script>
+    </body>
+</html>
