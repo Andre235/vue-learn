@@ -2,8 +2,12 @@
   <div id="app">
     <router-link to="/home">首页</router-link>
     <router-link to="/about">关于</router-link>
-    <router-link v-bind:to="'/user/' + userName">我的</router-link>
-    <router-view></router-view>
+    <button @click="link2User">我的</button>
+    <button @click="link2Profile">我的</button>
+
+    <keep-alive exclude="Profile,User">
+      <router-view/>
+    </keep-alive>
   </div>
 </template>
 
@@ -21,6 +25,19 @@
       },
       link2About() {
         this.$router.push("/about")
+      },
+      link2User() {
+        this.$router.push("/user/" + this.userName)
+      },
+      link2Profile() {
+        this.$router.push({
+          path: "/profile",
+          query: {
+            name: "赵静超",
+            age: 23,
+            height: 170
+          }
+        })
       }
     }
   }

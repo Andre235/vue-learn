@@ -38,6 +38,10 @@ const router = new VueRouter({
     {
       path: "/user/:userName",
       component: () => import("../components/User")
+    },
+    {
+      path: "/profile",
+      component: () => import("../components/Profile")
     }
   ],
   mode: "history"  //将URL模式从hash模式改为history模式
