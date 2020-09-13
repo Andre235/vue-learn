@@ -15,7 +15,21 @@ const router = new VueRouter({
     },
     {
       path: "/home",
-      component: () => import("../components/Home")
+      component: () => import("../components/Home"),
+      children: [
+        {
+          path: "/home",
+          redirect: "/home/news"
+        },
+        {
+          path: "news",
+          component: () => import("../components/HomeNews")
+        },
+        {
+          path: "message",
+          component: () => import("../components/HomeMessage")
+        }
+      ]
     },
     {
       path: "/about",
