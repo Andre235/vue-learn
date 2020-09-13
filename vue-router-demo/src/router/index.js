@@ -1,9 +1,6 @@
 // 1.导入路由相关依赖
 import VueRouter from "vue-router"
 import Vue from "vue"
-import About from "../components/About";
-import Home from "../components/Home";
-import User from "../components/User"
 
 //2.通过Vue.use(插件)来安装使用插件
 Vue.use(VueRouter)
@@ -14,19 +11,19 @@ const router = new VueRouter({
   routes:[
     {
       path: "/",
-      redirect: "/home" //路径的重定向
+      redirect: "/home"
     },
     {
       path: "/home",
-      component: Home
+      component: () => import("../components/Home")
     },
     {
       path: "/about",
-      component: About
+      component: () => import("../components/About")
     },
     {
       path: "/user/:userName",
-      component: User
+      component: () => import("../components/User")
     }
   ],
   mode: "history"  //将URL模式从hash模式改为history模式
