@@ -3,6 +3,7 @@ import VueRouter from "vue-router"
 import Vue from "vue"
 import About from "../components/About";
 import Home from "../components/Home";
+import User from "../components/User"
 
 //2.通过Vue.use(插件)来安装使用插件
 Vue.use(VueRouter)
@@ -22,6 +23,10 @@ const router = new VueRouter({
     {
       path: "/about",
       component: About
+    },
+    {
+      path: "/user/:userName",
+      component: User
     }
   ],
   mode: "history"  //将URL模式从hash模式改为history模式
