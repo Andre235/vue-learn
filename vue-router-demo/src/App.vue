@@ -1,14 +1,22 @@
 <template>
   <div id="app">
-    <router-link to="/home">首页</router-link>
-    <router-link to="/about">关于</router-link>
+    <button @click="link2Home">首页</button>
+    <button @click="link2About">关于</button>
     <router-view></router-view>
   </div>
 </template>
 
 <script>
   export default {
-    name: 'App'
+    name: 'App',
+    methods: {
+      link2Home() {
+        this.$router.push("/home")
+      },
+      link2About() {
+        this.$router.push("/about")
+      }
+    }
   }
 </script>
 
