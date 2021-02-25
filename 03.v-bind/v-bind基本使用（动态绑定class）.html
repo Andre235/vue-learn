@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:vibind="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .bgcColor {
+            background-color: peachpuff;
+        }
+        .fontColor {
+            color: aquamarine;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="app">
+        <a :href="url">百度一下</a>
+        <h3 :class="{fontColor: isColor, bgcColor: isBgc}">Hello Vue</h3>
+        <button @click="changeFontColor">改变字体颜色</button>
+        <button @click="changeBgcColor">改变背景颜色</button>
+    </div>
+
+    <script src="../js/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                message: "Hello Vue",
+                url: 'https://www.baidu.com',
+                isColor: true,
+                isBgc: true
+            },
+            methods: {
+            	changeFontColor: function () {
+                    this.isColor = ! this.isColor
+	            },
+	            changeBgcColor: function () {
+		            this.isBgc = ! this.isBgc
+	            },
+            }
+        })
+    </script>
+</body>
+</html>
