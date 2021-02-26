@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-if="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <body>
+        <div id="app">
+            <h4>{{firstName}} {{lastName}}</h4>
+            <!--通过计算属性实现-->
+            <h4>{{fullName}}</h4>
+            <!--通过方法实现-->
+            <h4>{{getFullName()}}</h4>
+
+        </div>
+
+        <script src="../js/vue.js"></script>
+        <script>
+            let app = new Vue({
+                el: '#app',
+                data: {
+                    firstName: '赵',
+                    lastName: '静超'
+                },
+                //计算属性，看起来是一个方法，本质上是一个属性(get方法的语法糖的实现)
+                computed: {
+                    fullName() {
+                    	return this.firstName + ' ' + this.lastName
+                    }
+                },
+                methods: {
+                	getFullName() {
+		                return this.firstName + ' ' + this.lastName
+                    }
+                }
+            })
+        </script>
+    </body>
+</html>
