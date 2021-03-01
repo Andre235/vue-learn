@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="app">
+        <h3>{{message}}</h3>
+        <cpn :cmessage="message" :ccollege="college"></cpn>
+    </div>
+
+    <template id="cpn">
+        <div>
+            <ul>
+                <li v-for="item in ccollege">{{item}}</li>
+            </ul>
+            <p>{{cmessage}}</p>
+        </div>
+    </template>
+
+    <script src="../js/vue.js"></script>
+    <script>
+        let cpn = {
+        	template: '#cpn',
+           props: {
+        		cmessage: {
+        			type: String,
+                    default: '默认值'
+                },
+               ccollege: {
+                   type: Array,
+                   required: true,
+                   default() {
+        				return []
+                   }
+               }
+           },
+            data() {
+                return {}
+            }
+        }
+
+        const app = new Vue({
+            el: '#app',
+            data: {
+                message: "Hello Vue",
+                college: ['中国海洋大学', '南京邮电大学', '苏州大学']
+            },
+            components: {
+            	cpn
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="app">
+        <h3>{{message}}</h3>
+        <my-com></my-com>
+    </div>
+
+    <template id="cpn">
+        <div>
+            <p>组件内部的数据:{{context}}</p>
+        </div>
+    </template>
+
+
+
+    <script src="../js/vue.js"></script>
+    <script>
+        Vue.component('myCom', {
+        	template: '#cpn',
+            data() {
+        		return {
+        			context: '我是组件内部的数据'
+                }
+            }
+        })
+        const app = new Vue({
+            el: '#app',
+            data: {
+                message: "Hello Vue"
+            }
+        })
+    </script>
+</body>
+</html>
