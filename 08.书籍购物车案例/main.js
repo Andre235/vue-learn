@@ -54,11 +54,12 @@ const app = new Vue({
 	},
 	computed: {
 		totalPrice() {
-			let result = 0.0;
-			for(let book of this.books){
-				result += book.price * book.count;
-			}
-			return result;
+			return this.books.reduce((preValue, book) => preValue + book.count * book.price, 0 );
 		}
 	}
 })
+
+// filter函数的使用
+const array = [1, 2, 3, 4, 5, 6];
+let total = array.filter(n => n % 2 ===0).map(n => n * 2).reduce((preValue, n) => preValue + n);
+console.log(total);
